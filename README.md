@@ -23,7 +23,7 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 - Function implemented
 
 **Extra Tasks**
-- A docker image created with the 
+- A docker image created with the `demo` package installed. Base the `Dockerfile` on the Python 3.7-alpine official Docker image
 - PEP8 violations and unittests are checked via tox.
 - Tests, setup and Docker builds run automatically via Travis CI
 
@@ -41,10 +41,20 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 # Unittests
 In test driven development, you initially start with unittests and later work on the solution. This way you can ensure that your implementation is well-thought and it fulfills the requirements.
 
-For unittests, we will use [pytest](https://pytest.org/en/latest/), which is one of the most used unittest libraries ifor Python.
+For unittests, we will use [pytest](https://pytest.org/en/latest/), which is one of the most used unittest libraries for Python. Our tests will live in a folder called `tests` under the repo. The modules will be a mirror image of the `demo` package. Having a parallel structure helps us to build small, incremental tests, and keep a track of what is being tested with ease.
+
+To run the unittests, (after installing the `pytest` library), run:
+
+```bash
+pytest tests/    
+```
+
+You may also add additional options, e.g. to control verbosity. Please check the `pytest` documentation for information.
+
+In TDD, you should implement the tests one-by-one, starting from the simplest, before you start coding the solution. You implement/build upon the solution after each test (or a meaningful set of similar tests) is implemented. This helps us to focus on a smaller step, and hence develop the solution easily and rapidly while closely following the requirements.
 
 # Create a Docker image
-TODO
+We will create a simple Dockerfile, which will have the `demo` package installed. The entrypoint will be the Python shell, when the image is run.
 
 # Local automation
 Later, we will also introduce [tox](https://tox.readthedocs.io/en/latest/) an automation tool for Python. We will use tox to run the unittests, check the local setup & Docker builds, and check for PEP8 & linting problems in a single go in our local machine. 
