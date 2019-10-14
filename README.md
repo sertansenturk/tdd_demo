@@ -32,6 +32,7 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 - `hz_seq` is `[ref_hz, ref_hz * 2]`; returns `[0, 1200]`
 - `hz_seq` is `[20]`, `ref_hz` is `20`, and `min_hz` is not given (default); returns `np.array([0])`
 - `hz_seq` is `[20000]`, `ref_hz` is `20000`, and `min_hz` is not given (default); returns `np.array([0])`
+- `hz_seq` is `[50]`, `ref_hz` is `100`, and `min_hz` is `50`; returns `np.array([-1200])`
 - `hz_seq` is `[50]`, `ref_hz` is `25`, and `min_hz` is `50`; returns `np.array([1200])`
 - `hz_seq` is `[50]`, `ref_hz` is `25`, and `min_hz` is `100`; returns `np.array([np.nan])`
 

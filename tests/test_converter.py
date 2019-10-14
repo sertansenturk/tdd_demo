@@ -227,3 +227,31 @@ def test_hz_to_cent_20k_hz_seq_20k_ref_hz():
     # THEN
     expected = np.array([0])
     assert np.array_equal(result, expected)
+
+
+def test_hz_to_cent_50_hz_seq_100_ref_hz_50_min_hz():
+    # GIVEN
+    hz_seq = [50]
+    ref_hz = 100
+    min_hz = 50
+
+    # WHEN
+    result = hz_to_cent(hz_seq, ref_hz, min_hz)
+
+    # THEN
+    expected = np.array([-1200])
+    assert np.array_equal(result, expected)
+
+
+def test_hz_to_cent_50_hz_seq_25_ref_hz_50_min_hz():
+    # GIVEN
+    hz_seq = [50]
+    ref_hz = 25
+    min_hz = 50
+
+    # WHEN
+    result = hz_to_cent(hz_seq, ref_hz, min_hz)
+
+    # THEN
+    expected = np.array([1200])
+    assert np.array_equal(result, expected)
