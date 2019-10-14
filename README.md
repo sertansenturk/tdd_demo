@@ -44,7 +44,7 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 # Unittests
 In test driven development, you initially start with unittests and later work on the solution. This way you can ensure that your implementation is well-thought and it fulfills the requirements.
 
-For unittests, we will use [pytest](https://pytest.org/en/latest/), which is one of the most used unittest libraries for Python. Our tests will live in a folder called `tests` under the repo. The modules will be a mirror image of the `demo` package. Having a parallel structure helps us to build small, incremental tests, and keep a track of what is being tested with ease.
+For unittests, we will use [pytest](https://pytest.org/en/latest/), which is one of the most used unittest libraries for Python. Our tests will live in a folder called `tests` under the repo. The modules will be a mirror image of the `demo` package, with a prefix `test_` added to each module name. Having a parallel structure helps us to build small, incremental tests, and keep a track of what is being tested with ease.
 
 To run the unittests, (after installing the `pytest` library), run:
 
