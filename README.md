@@ -25,6 +25,7 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 - `ref_hz` is not between `20 Hz` and `20k Hz`; raises a `ValueError`
 - `min_hz` is not a `float` or `np.float`; raises a `ValueError`
 - `min_hz` is not between `20 Hz` and `20k Hz`; raises a `ValueError`
+- `hz_seq` is `[]`; returns `[]`
 - `hz_seq` is `[ref_hz]`; returns `[0]`
 - `hz_seq` is `[ref_hz * 2]`; returns `1200`
 - `hz_seq` is `[ref_hz / 2]`; returns `-1200`
