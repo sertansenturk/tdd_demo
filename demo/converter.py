@@ -65,4 +65,10 @@ def hz_to_cent(hz_seq: Union[List[float], np.array],
     if hz_seq.size == 0:  # empty sequence
         return hz_seq
 
+    # force to float
+    hz_seq = hz_seq.astype(float)
+
+    # filter frequency values lower than minimum freq
+    hz_seq[hz_seq < min_hz] = np.nan
+
     return np.log2(hz_seq / ref_hz) * NUM_CENTS_IN_OCTAVE
