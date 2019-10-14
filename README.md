@@ -56,6 +56,8 @@ You may also add additional options, e.g. to control verbosity. Please check the
 
 In TDD, you should implement the tests one-by-one, starting from the simplest, before you start coding the solution. You implement/build upon the solution after each test (or a meaningful set of similar tests) is implemented. This helps us to focus on a smaller step, and hence develop the solution easily and rapidly while closely following the requirements.
 
+We will use the so-called ["GIVEN, WHEN, THEN" pattern](https://pythontesting.net/strategy/given-when-then-2/) to write our tests.
+
 # Create a Docker image
 We will create a simple Dockerfile, which will have the `demo` package installed. The entrypoint will be the Python shell, when the image is run.
 
