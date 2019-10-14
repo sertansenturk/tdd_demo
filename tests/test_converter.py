@@ -26,7 +26,8 @@ def test_hz_to_cent_hz_seq_lower_than_20():
         hz_to_cent(hz_seq, ref_hz)
 
     assert (str(excinfo.value) ==
-            'hz_seq cannot have values lower than 20 Hz.')
+            'hz_seq values must be higher than or equal to '
+            '20 Hz.')
 
 
 def test_hz_to_cent_hz_seq_lower_than_20000():
@@ -39,7 +40,8 @@ def test_hz_to_cent_hz_seq_lower_than_20000():
         hz_to_cent(hz_seq, ref_hz)
 
     assert (str(excinfo.value) ==
-            'hz_seq cannot have values higher than 20000 Hz.')
+            'hz_seq values must be lower than or equal to '
+            '20000 Hz.')
 
 
 def test_hz_to_cent_wrong_ref_hz_type():
@@ -65,7 +67,7 @@ def test_hz_to_cent_ref_hz_lower_than_20():
         hz_to_cent(hz_seq, ref_hz)
 
     assert (str(excinfo.value) ==
-            'ref_hz must be higher than 20 Hz.')
+            'ref_hz must be higher than or equal to 20 Hz.')
 
 
 def test_hz_to_cent_ref_hz_lower_than_20000():
@@ -78,7 +80,7 @@ def test_hz_to_cent_ref_hz_lower_than_20000():
         hz_to_cent(hz_seq, ref_hz)
 
     assert (str(excinfo.value) ==
-            'ref_hz must be lower than 20000 Hz.')
+            'ref_hz must be lower than or equal to 20000 Hz.')
 
 
 def test_hz_to_cent_wrong_min_hz_type():
@@ -106,7 +108,7 @@ def test_hz_to_cent_min_hz_lower_than_20():
         hz_to_cent(hz_seq, ref_hz, min_hz)
 
     assert (str(excinfo.value) ==
-            'min_hz must be higher than 20 Hz.')
+            'min_hz must be higher than or equal to 20 Hz.')
 
 
 def test_hz_to_cent_min_hz_lower_than_20000():
@@ -120,7 +122,7 @@ def test_hz_to_cent_min_hz_lower_than_20000():
         hz_to_cent(hz_seq, ref_hz, min_hz)
 
     assert (str(excinfo.value) ==
-            'min_hz must be lower than 20000 Hz.')
+            'min_hz must be lower than or equal to 20000 Hz.')
 
 
 def test_hz_to_cent_empty_hz_seq():
@@ -198,4 +200,30 @@ def test_hz_to_cent_hz_seq_two_elements():
 
     # THEN
     expected = np.array([0, 1200])
+    assert np.array_equal(result, expected)
+
+
+def test_hz_to_cent_20_hz_seq_20_ref_hz():
+    # GIVEN
+    hz_seq = [20]
+    ref_hz = 20
+
+    # WHEN
+    result = hz_to_cent(hz_seq, ref_hz)
+
+    # THEN
+    expected = np.array([0])
+    assert np.array_equal(result, expected)
+
+
+def test_hz_to_cent_20k_hz_seq_20k_ref_hz():
+    # GIVEN
+    hz_seq = [20000]
+    ref_hz = 20000
+
+    # WHEN
+    result = hz_to_cent(hz_seq, ref_hz)
+
+    # THEN
+    expected = np.array([0])
     assert np.array_equal(result, expected)

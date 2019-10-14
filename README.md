@@ -25,15 +25,15 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 - `ref_hz` is not between `20 Hz` and `20k Hz`; raises a `ValueError`
 - `min_hz` is not a `float` or `np.float`; raises a `ValueError`
 - `min_hz` is not between `20 Hz` and `20k Hz`; raises a `ValueError`
-- `hz_seq` is `[]`; returns `[]`
-- `hz_seq` is `[ref_hz]`; returns `[0]`
-- `hz_seq` is `[ref_hz * 2]`; returns `1200`
-- `hz_seq` is `[ref_hz / 2]`; returns `-1200`
+- `hz_seq` is `[]`; returns `np.array([])`
+- `hz_seq` is `[ref_hz]`; returns `np.array([0])`
+- `hz_seq` is `[ref_hz * 2]`; returns `np.array([1200])`
+- `hz_seq` is `[ref_hz / 2]`; returns `np.array([-1200])`
 - `hz_seq` is `[ref_hz, ref_hz * 2]`; returns `[0, 1200]`
-- `hz_seq` is `[10]` where `min_hz` is not given (default); returns `[np.nan]`
-- `hz_seq` is `[20]`, `ref_hz` is `20`, and `min_hz` is not given (default); returns `[0]`
-- `hz_seq` is `[50]`, `ref_hz` is `25`, and `min_hz` is `50`; returns `[1200]`
-- `hz_seq` is `[50]`, `ref_hz` is `25`, and `min_hz` is `100`; returns `[np.nan]`
+- `hz_seq` is `[20]`, `ref_hz` is `20`, and `min_hz` is not given (default); returns `np.array([0])`
+- `hz_seq` is `[20000]`, `ref_hz` is `20000`, and `min_hz` is not given (default); returns `np.array([0])`
+- `hz_seq` is `[50]`, `ref_hz` is `25`, and `min_hz` is `50`; returns `np.array([1200])`
+- `hz_seq` is `[50]`, `ref_hz` is `25`, and `min_hz` is `100`; returns `np.array([np.nan])`
 
 **Acceptance Criteria**
 - Unittests must pass
