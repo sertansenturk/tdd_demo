@@ -12,11 +12,14 @@ Consider you are assigned the ticket below:
 **Reason**: This is a common transformation we have to apply for many signal processing tasks.
 
 **Design**: Create a method which has the inputs:
-- hz_list: `Union[List[float], np.array]` list of hz values
+- hz_seq: `Union[List[float], np.array]` sequence of hz values
 - ref_hz: `Union[float, np.float]` reference freuency for conversion
-- min_hz: Minimum freq value to convert. All values below this value will return a `np.nan`.
+- min_hz: `Union[float, np.float]` minimum freq value to convert, defaults to 20 Hz. All values below this value will return a `np.nan`.
 
 The output of the method is a `np.array` of cent values. The conversion formula is `np.log2(hz_track / ref_freq) * NUM_CENTS_IN_OCTAVE`, where `NUM_CENTS_IN_OCTAVE = 1200`.
+
+**Unittests**
+- `hz_seq` is not a `List` or `np.array`
 
 **Acceptance Criteria**
 - Unittests must pass
