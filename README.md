@@ -16,7 +16,7 @@ Consider you are assigned the ticket below:
 - ref_hz: `Union[float, np.float]` reference freuency for conversion
 - min_hz: `Union[float, np.float]` minimum freq value to convert, defaults to 20 Hz. All values below this value will return a `np.nan`.
 
-The output of the method is a `np.array` of cent values. The conversion formula is `np.log2(hz_track / ref_freq) * NUM_CENTS_IN_OCTAVE`, where `NUM_CENTS_IN_OCTAVE = 1200`.
+The output of the method is a `np.array` of cent values. The conversion formula is `np.log2(hz_seq / ref_hz) * NUM_CENTS_IN_OCTAVE`, where `NUM_CENTS_IN_OCTAVE = 1200`.
 
 **Unittests**
 - `hz_seq` is not a `List` or `np.array`; raises a `ValueError`
