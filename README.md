@@ -19,7 +19,7 @@ Consider you are assigned the ticket below:
 The output of the method is a `np.array` of cent values. The conversion formula is `np.log2(hz_track / ref_freq) * NUM_CENTS_IN_OCTAVE`, where `NUM_CENTS_IN_OCTAVE = 1200`.
 
 **Unittests**
-WRITE YOUR ANSWERS
+- WRITE YOUR ANSWERS
 
 **Acceptance Criteria**
 - Unittests must pass
