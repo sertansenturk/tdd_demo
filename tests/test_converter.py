@@ -147,3 +147,55 @@ def test_hz_to_cent_hz_seq_ref_hz_same():
     # THEN
     expected = np.array([0])
     assert np.array_equal(result, expected)
+
+
+def test_hz_to_cent_hz_seq_ref_hz_same_numpy():
+    # GIVEN
+    hz_seq = np.array([440])
+    ref_hz = 440
+
+    # WHEN
+    result = hz_to_cent(hz_seq, ref_hz)
+
+    # THEN
+    expected = np.array([0])
+    assert np.array_equal(result, expected)
+
+
+def test_hz_to_cent_hz_seq_double_ref_hz():
+    # GIVEN
+    hz_seq = [880]
+    ref_hz = 440
+
+    # WHEN
+    result = hz_to_cent(hz_seq, ref_hz)
+
+    # THEN
+    expected = np.array([1200])
+    assert np.array_equal(result, expected)
+
+
+def test_hz_to_cent_hz_seq_half_ref_hz():
+    # GIVEN
+    hz_seq = [440]
+    ref_hz = 880
+
+    # WHEN
+    result = hz_to_cent(hz_seq, ref_hz)
+
+    # THEN
+    expected = np.array([-1200])
+    assert np.array_equal(result, expected)
+
+
+def test_hz_to_cent_hz_seq_two_elements():
+    # GIVEN
+    hz_seq = [440, 880]
+    ref_hz = 440
+
+    # WHEN
+    result = hz_to_cent(hz_seq, ref_hz)
+
+    # THEN
+    expected = np.array([0, 1200])
+    assert np.array_equal(result, expected)
