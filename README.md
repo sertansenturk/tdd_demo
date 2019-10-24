@@ -42,7 +42,7 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 
 **Extra Tasks**
 - A docker image created with the `demo` package installed. Base the `Dockerfile` on the Python 3.7-slim-buster official Docker image
-- PEP8 violations and unittests are checked via tox.
+- PEP8 violations, unittests, linting and installation procedures are checked via tox.
 - Tests, setup and Docker builds run automatically via Travis CI
 
 **Outcome**
