@@ -16,10 +16,26 @@ Consider you are assigned the ticket below:
 - ref_hz: `Union[float, np.float]` reference freuency for conversion
 - min_hz: `Union[float, np.float]` minimum freq value to convert, defaults to 20 Hz. All values below this value will return a `np.nan`.
 
-The output of the method is a `np.array` of cent values. The conversion formula is `np.log2(hz_track / ref_freq) * NUM_CENTS_IN_OCTAVE`, where `NUM_CENTS_IN_OCTAVE = 1200`.
+The output of the method is a `np.array` of cent values. The conversion formula is `np.log2(hz_seq / ref_hz) * NUM_CENTS_IN_OCTAVE`, where `NUM_CENTS_IN_OCTAVE = 1200`.
 
 **Unittests**
-- WRITE YOUR ANSWERS
+- `hz_seq` is not a `List` or `np.array`; raises a `ValueError`
+- At least one values in `hz_seq` is not between `20 Hz` and `20k Hz`; raises a `ValueError`
+- `ref_hz` is not a `float` or `np.float`; raises a `ValueError`
+- `ref_hz` is not between `20 Hz` and `20k Hz`; raises a `ValueError`
+- `min_hz` is not a `float` or `np.float`; raises a `ValueError`
+- `min_hz` is not between `20 Hz` and `20k Hz`; raises a `ValueError`
+- `hz_seq` is `[]`; returns `np.array([])`
+- `hz_seq` is `[np.nan]`; returns `np.array([np.nan])`
+- `hz_seq` is `[ref_hz]`; returns `np.array([0.0])`
+- `hz_seq` is `[ref_hz * 2]`; returns `np.array([1200.0])`
+- `hz_seq` is `[ref_hz / 2]`; returns `np.array([-1200.0])`
+- `hz_seq` is `[ref_hz, ref_hz * 2]`; returns `[0.0, 1200.0]`
+- `hz_seq` is `[20]`, `ref_hz` is `20`, and `min_hz` is not given (default); returns `np.array([0.0])`
+- `hz_seq` is `[20000]`, `ref_hz` is `20000`, and `min_hz` is not given (default); returns `np.array([0.0])`
+- `hz_seq` is `[50]`, `ref_hz` is `100`, and `min_hz` is `50`; returns `np.array([-1200.0])`
+- `hz_seq` is `[50]`, `ref_hz` is `25`, and `min_hz` is `50`; returns `np.array([1200.0])`
+- `hz_seq` is `[50]`, `ref_hz` is `25`, and `min_hz` is `100`; returns `np.array([np.nan])`
 
 **Acceptance Criteria**
 - Unittests must pass
