@@ -76,6 +76,18 @@ We will use the so-called ["GIVEN, WHEN, THEN" pattern](https://pythontesting.ne
 # Create a Docker image
 We will create a simple Dockerfile, which will have the `demo` package installed. The entrypoint will be the Python shell, when the image is run.
 
+To build the Docker image, run:
+
+```bash
+docker build -t tdd-demo:0.1 .
+```
+
+Then run an interactive container by:
+
+```bash
+docker run -it tdd-demo:0.1
+```
+
 # Local automation
 Later, we will also introduce [tox](https://tox.readthedocs.io/en/latest/) an automation tool for Python. We will use tox to run the unittests, check the local setup & Docker builds, and check for PEP8 & linting problems in a single go in our local machine. 
 

@@ -9,4 +9,4 @@ COPY ./demo ./demo
 
 USER appuser
 
-CMD ["python"]
+ENTRYPOINT ["python"]
