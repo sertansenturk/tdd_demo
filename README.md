@@ -1,5 +1,5 @@
 # tdd_demo
-A simple demo for test driven development, and automation
+A simple demo for test driven development, automated testing and code style checking, and continous integration
 
 In this demo, we will code a simple function using test driven development. Later, we will show how to automate the tests, setup, and coding style in our local machine. Finally, we will do the automation using continuous integration service.
 
