@@ -38,7 +38,7 @@ def hz_to_cent(hz_seq: Union[List[float], np.array],
     if any(hz_seq < MIN_AUDIBLE_FREQUENCY):
         raise ValueError("hz_seq values must be higher than or "
                          "equal to %d Hz." % MIN_AUDIBLE_FREQUENCY)
-    elif any(hz_seq > MAX_AUDIBLE_FREQUENCY):
+    if any(hz_seq > MAX_AUDIBLE_FREQUENCY):
         raise ValueError("hz_seq values must be lower than or "
                          "equal to %d Hz." % MAX_AUDIBLE_FREQUENCY)
 
@@ -48,7 +48,7 @@ def hz_to_cent(hz_seq: Union[List[float], np.array],
     if ref_hz < MIN_AUDIBLE_FREQUENCY:
         raise ValueError("ref_hz must be higher than or equal to "
                          "%d Hz." % MIN_AUDIBLE_FREQUENCY)
-    elif ref_hz > MAX_AUDIBLE_FREQUENCY:
+    if ref_hz > MAX_AUDIBLE_FREQUENCY:
         raise ValueError("ref_hz must be lower than or equal to "
                          "%d Hz." % MAX_AUDIBLE_FREQUENCY)
 
@@ -58,7 +58,7 @@ def hz_to_cent(hz_seq: Union[List[float], np.array],
     if min_hz < MIN_AUDIBLE_FREQUENCY:
         raise ValueError("min_hz must be higher than or equal to "
                          "%d Hz." % MIN_AUDIBLE_FREQUENCY)
-    elif min_hz > MAX_AUDIBLE_FREQUENCY:
+    if min_hz > MAX_AUDIBLE_FREQUENCY:
         raise ValueError("min_hz must be lower than or equal to "
                          "%d Hz." % MAX_AUDIBLE_FREQUENCY)
 
