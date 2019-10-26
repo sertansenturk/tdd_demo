@@ -1,7 +1,7 @@
 # tdd_demo
 A simple demo for test driven development, automated testing, code style checking, and continous integration
 
-In this demo, we will code a simple function using test driven development. Later, we will show how to automate the tests, setup, and coding style in our local machine. Finally, we will do the automation using continuous integration service.
+In this demo, we implement a simple function using test driven development. Later, we show how to automate the tests, setup, and coding style in our local machine. Finally, we do the automation using continuous integration service.
 
 Consider you are assigned the ticket below:
 
@@ -14,7 +14,7 @@ Consider you are assigned the ticket below:
 **Design**: Create a method which has the inputs:
 - hz_seq: `Union[List[float], np.array]` sequence of hz values
 - ref_hz: `Union[float, np.float]` reference freuency for conversion
-- min_hz: `Union[float, np.float]` minimum freq value to convert, defaults to 20 Hz. All values below this value will return a `np.nan`.
+- min_hz: `Union[float, np.float]` minimum freq value to convert, defaults to 20 Hz. All values below this value returns a `np.nan`.
 
 The output of the method is a `np.array` of cent values. The conversion formula is `np.log2(hz_seq / ref_hz) * NUM_CENTS_IN_OCTAVE`, where `NUM_CENTS_IN_OCTAVE = 1200`.
 
@@ -59,9 +59,9 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 ## Unittests
 In test driven development, you initially start with unittests and later work on the solution. This way you can ensure that your implementation is well-thought and it fulfills the requirements.
 
-For unittests, we will use [pytest](https://pytest.org/en/latest/), which is one of the most used unittest libraries for Python. Our tests will live in a folder called `tests` under the repo. The modules will be a mirror image of the `demo` package, with a prefix `test_` added to each module name. Having a parallel structure helps us to build small, incremental tests, and keep a track of what is being tested with ease.
+For unittests, we use [pytest](https://pytest.org/en/latest/), which is one of the most used unittest libraries for Python. Our tests live in a folder called `tests` under the repo. The modules are a mirror image of the `demo` package, with a prefix `test_` added to each module name. Having a parallel structure helps us to build small, incremental tests, and keep a track of what is being tested with ease.
 
-First we will create a `virtualenv` to isolate our development environment from the OS Python. Please follow the [instructions to install `pip` and `virtualenv`](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/), if you don't have them on your system. Once they are installed, you can create a virtual environment by:
+First, create a `virtualenv` to isolate our development environment from the OS Python. Please follow the [instructions to install `pip` and `virtualenv`](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/), if you don't have them on your system. Once they are installed, you can create a virtual environment by:
 
 ```bash
 cd /path/to/tdd_demo_repo
@@ -90,16 +90,47 @@ You may also add additional options, e.g. to control verbosity. Please check the
 
 In TDD, you should implement the tests one-by-one, starting from the simplest, before you start coding the solution. You implement/build upon the solution after each test (or a meaningful set of similar tests) is implemented. This helps us to focus on a smaller step, and hence develop the solution easily and rapidly while closely following the requirements.
 
-We will use the so-called ["GIVEN, WHEN, THEN" pattern](https://pythontesting.net/strategy/given-when-then-2/) to write our tests. The unittests should not overlap as much as possible.
+We use the so-called ["GIVEN, WHEN, THEN" pattern](https://pythontesting.net/strategy/given-when-then-2/) to write our tests. The unittests should not overlap as much as possible.
 
 # Test coverage
-TODO
+
+TODO: Description
+**Important:** make sure that the virtual environment is activated.
+
+Install `pytest-cov` by:
+
+```bash
+pip install pytest-cov
+```
+
+TODO: add config
+TODO: code
 
 # Code styling
-TODO
+
+TODO: Description
+**Important:** make sure that the virtual environment is activated.
+
+Install `flake8` by:
+
+```bash
+pip install flake8
+```
+
+TODO: code
 
 # Linting
-TODO
+
+TODO: Description
+**Important:** make sure that the virtual environment is activated.
+
+Install `pylint` by:
+
+```bash
+pip install pylint
+```
+
+TODO: code
 
 # Create a Docker image
 We use [Docker](https://www.docker.com/) for containarization. This way we can decouple the code from the hardware, and easily deploy it to anywhere.
@@ -123,7 +154,7 @@ The entrypoint for the running image is the Python shell.
 TODO: create a script which import demo package automatically.
 
 # Local automation
-We use [tox](https://tox.readthedocs.io/en/latest/), to automate the steps above in our local machine.
+We use [tox](https://tox.readthedocs.io/en/latest/), to automate the steps above in our local machine. **Important:** make sure that the virtual environment is activated.
 
 Install `tox` by:
 
@@ -131,11 +162,12 @@ Install `tox` by:
 pip install tox
 ```
 
-Calling `tox` is trivially:
+Calling `tox` is trivial:
 
 ```bash
 tox
 ```
 
 # Continous integration
-Finally, we replicate the local automation using tox to [Travis CI](https://travis-ci.org/), a continous integration service. Travis CI will run the steps above every time a change is made to the Github codebase.
+
+Finally, we replicate the local automation using tox to [Travis CI](https://travis-ci.org/), a continous integration service. Travis CI runs the steps above every time a change is made to the Github codebase.
