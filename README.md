@@ -1,5 +1,5 @@
 # tdd_demo
-A simple demo for test driven development, automated testing and code style checking, and continous integration
+A simple demo for test driven development, automated testing, code style checking, and continous integration
 
 In this demo, we will code a simple function using test driven development. Later, we will show how to automate the tests, setup, and coding style in our local machine. Finally, we will do the automation using continuous integration service.
 
@@ -42,7 +42,7 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 
 **Extra Tasks**
 - A docker image created with the `demo` package installed. Base the `Dockerfile` on the Python 3.7-slim-buster official Docker image
-- PEP8 violations, unittests, linting and installation procedures are checked via tox.
+- Code styling, unittests, linting and setup checks automated by `tox`.
 - Tests, setup and Docker builds run automatically via Travis CI
 
 **Outcome**

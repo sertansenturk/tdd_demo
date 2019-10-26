@@ -1,6 +1,6 @@
 from typing import List, Union
-import numpy as np
 
+import numpy as np
 
 MIN_AUDIBLE_FREQUENCY = 20  # Hz
 MAX_AUDIBLE_FREQUENCY = 20000  # Hz

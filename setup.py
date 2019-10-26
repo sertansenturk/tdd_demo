@@ -1,6 +1,9 @@
-# Always prefer setuptools over distutils
-from setuptools import setup, find_packages
 import os
+
+# Always prefer setuptools over distutils
+from setuptools import find_packages, setup
+
+from demo import __version__
 
 # Get the long description from the README file
 here = os.path.abspath(os.path.dirname(__file__))
@@ -9,7 +12,6 @@ with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
 # Fields marked as "Optional" may be commented out.
-
 setup(
     # This is the name of your project. The first time you publish this
     # package, this name will be registered for you. It will determine how
@@ -30,12 +32,14 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.3.0',  # Required
+    version=__version__,  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='A simple demo for test driven development, automated testing and code style checking, and continous integration',
+    description=(
+        'A simple demo for test driven development, automated testing, '
+        'code style checking, and continous integration'),
 
     # This is an optional longer description of your project that represents
     # the body of text which users will see when they visit PyPI.
