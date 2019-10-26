@@ -94,7 +94,10 @@ We use the so-called ["GIVEN, WHEN, THEN" pattern](https://pythontesting.net/str
 
 # Test coverage
 
-TODO: Description
+Test coverage is about measuring how much your unittests cover your codebase. Undoubtedly, the coverage should be as high as possible. Nevertheless, it is not necessarily a good idea to obsess over 100% coverage. Typically, there would be parts, which would be trivial, tedious or unsuitable to test, e.g. bootstrapping code, which will be changed in near future. Trying to cover everything would take an unreasonable amount of time and it will take away from precious development time.
+
+We will use a `pytest` extension called `pytest-cov` to measure the coverage. 
+
 **Important:** make sure that the virtual environment is activated.
 
 Install `pytest-cov` by:
@@ -103,8 +106,33 @@ Install `pytest-cov` by:
 pip install pytest-cov
 ```
 
+We can now run `pytest` with additional instructions to obtain the coverage:
+
+```bash
+pytest tests --cov=demo --cov-report term 
+```
+
+Above, we are pointing that we want the coverage for the package `demo` and we want to see the report per term. After running the output should be similar to:
+
+    ========================================================================= test session starts ==========================================================================
+    platform linux -- Python 3.5.2, pytest-5.2.1, py-1.8.0, pluggy-0.13.0
+    rootdir: /path/to/tdd_demo_repo
+    plugins: cov-2.8.1
+    collected 20 items                               
+
+    tests/test_converter.py ....................                                                                                                                     [100%]
+
+    ----------- coverage: platform linux, python 3.5.2-final-0 -----------
+    Name                Stmts   Miss  Cover
+    ---------------------------------------
+    demo/__init__.py        1      0   100%
+    demo/converter.py      32      0   100%
+    ---------------------------------------
+    TOTAL                  33      0   100%
+
+For more options, please refer to the `pytest-cov` [documentation](https://pytest-cov.readthedocs.io/en/latest/).
+
 TODO: add config
-TODO: code
 
 # Code styling
 
