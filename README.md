@@ -56,12 +56,31 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 
 ----------
 
-# Unittests
+## Unittests
 In test driven development, you initially start with unittests and later work on the solution. This way you can ensure that your implementation is well-thought and it fulfills the requirements.
 
 For unittests, we will use [pytest](https://pytest.org/en/latest/), which is one of the most used unittest libraries for Python. Our tests will live in a folder called `tests` under the repo. The modules will be a mirror image of the `demo` package, with a prefix `test_` added to each module name. Having a parallel structure helps us to build small, incremental tests, and keep a track of what is being tested with ease.
 
-To run the unittests, (after installing the `pytest` library), run:
+First we will create a `virtualenv` to isolate our development environment from the OS Python. Please follow the [instructions to install `pip` and `virtualenv`](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/), if you don't have them on your system. Once they are installed, you can create a virtual environment by:
+
+```bash
+cd /path/to/tdd_demo_repo
+virtualenv -p python3 env
+```
+
+Above command creates a virtual environment called `env` on the folder of this repository. Next, activate the environment:
+
+```bash
+source env/bin/activate
+```
+
+Install `pytest`:
+
+```
+pip install pytest
+```
+
+Run the unittests:
 
 ```bash
 pytest tests/    
@@ -73,8 +92,19 @@ In TDD, you should implement the tests one-by-one, starting from the simplest, b
 
 We will use the so-called ["GIVEN, WHEN, THEN" pattern](https://pythontesting.net/strategy/given-when-then-2/) to write our tests. The unittests should not overlap as much as possible.
 
+# Test coverage
+TODO
+
+# Code styling
+TODO
+
+# Linting
+TODO
+
 # Create a Docker image
-We will create a simple Dockerfile, which will have the `demo` package installed. The entrypoint will be the Python shell, when the image is run.
+We use [Docker](https://www.docker.com/) for containarization. This way we can decouple the code from the hardware, and easily deploy it to anywhere.
+
+For demonstration, we create a simple Dockerfile, which has the `demo` package installed.
 
 To build the Docker image, run:
 
@@ -88,8 +118,24 @@ Then run an interactive container by:
 docker run -it tdd-demo:0.1
 ```
 
+The entrypoint for the running image is the Python shell. 
+
+TODO: create a script which import demo package automatically.
+
 # Local automation
-Later, we will also introduce [tox](https://tox.readthedocs.io/en/latest/) an automation tool for Python. We will use tox to run the unittests, check the local setup & Docker builds, and check for PEP8 & linting problems in a single go in our local machine. 
+We use [tox](https://tox.readthedocs.io/en/latest/), to automate the steps above in our local machine.
+
+Install `tox` by:
+
+```bash
+pip install tox
+```
+
+Calling `tox` is trivially:
+
+```bash
+tox
+```
 
 # Continous integration
 Finally, we replicate the local automation using tox to [Travis CI](https://travis-ci.org/), a continous integration service. Travis CI will run the steps above every time a change is made to the Github codebase.
