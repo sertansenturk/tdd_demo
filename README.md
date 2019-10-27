@@ -1,6 +1,6 @@
 # tdd_demo
 
-[![Build Status](https://travis-ci.com/sertansenturk/tdd_demo.svg?branch=master)](https://travis-ci.com/sertansenturk/tdd_demo)
+[![Build Status](https://travis-ci.com/sertansenturk/tdd_demo.svg?branch=master)](https://travis-ci.com/sertansenturk/tdd_demo) [![codecov](https://codecov.io/gh/sertansenturk/tdd_demo/branch/master/graph/badge.svg)](https://codecov.io/gh/sertansenturk/tdd_demo)
 
 A simple demo for test-driven development, automated testing, code style checking, and continuous integration
 
