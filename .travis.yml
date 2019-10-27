@@ -14,6 +14,7 @@ before_install:
   - pip install pylint
   - docker build -t tdd-demo:0.1 .
   - docker ps -a
+  - docker run tdd-demo:0.1 -c "from demo.converter import hz_to_cent; print(hz_to_cent([500], 250))"
 install:
   - pip install . # install package
 script: 
@@ -21,6 +22,5 @@ script:
   - flake8 setup.py
   - pylint demo
   - pytest --cov=demo # run tests
-  - docker run -it tdd-demo:0.1 -c "from demo.converter import hz_to_cent; print(hz_to_cent([500], 250))"
 after_success:
   - codecov # submit coverage
