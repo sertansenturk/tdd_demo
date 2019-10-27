@@ -9,9 +9,6 @@ before_install:
   - python --version
   - docker --version
   - pip install -U pip
-  - pip install flake8
-  - pip install pylint
-  - pip install -U pytest pytest-cov
   - pip install codecov
   - pip install tox-travis
 install:
