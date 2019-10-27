@@ -1,4 +1,5 @@
 language: python
+sudo: false
 python:
   - 3.5
   - 3.6
@@ -13,14 +14,11 @@ before_install:
   - pip install pylint
   - pip install -U pytest pytest-cov
   - pip install codecov
+  - pip install tox-travis
 install:
   - pip install . # install package
   - docker build -t tdd-demo .
 script: 
-  - flake8 demo
-  - flake8 setup.py
-  - pylint demo
-  - pytest --cov=demo
-  - docker run tdd-demo -c "from demo.converter import hz_to_cent; print(hz_to_cent([500], 250))"
+  - tox
 after_success:
   - codecov # submit coverage to https://codecov.io/gh/sertansenturk/tdd_demo/
