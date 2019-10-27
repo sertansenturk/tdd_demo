@@ -1,5 +1,5 @@
 __version__ = "0.1.0"
 
-from . converter import *
+from demo import converter
 
 __all__ = ["converter"]
