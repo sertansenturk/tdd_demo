@@ -234,6 +234,8 @@ tox
 
 ## Continuous integration
 
-Finally, we replicate the local automation using tox to [Travis CI](https://travis-ci.org/), a continuous integration service. Travis CI runs the steps above every time a change is made to the Github codebase.
+While `tox` helps us substantially when we want to make sure everything works locally, it does not bring any protection against forgetfulness: we should not be allowed to merge code to *remote*, if there are problems.
+
+We replicate the local `tox` automation by enabling [Travis CI](https://travis-ci.org/), a continuous integration service. Travis CI runs the steps above each time a change is made to the Github codebase.
 
 TODO: Integrate CI
