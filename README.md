@@ -238,7 +238,7 @@ After running `tox`, a coverage report will be created in the folder `htmlcov`. 
 
 ## Continuous integration
 
-While `tox` helps us substantially when we want to make sure everything works locally, it does not bring any protection against forgetfulness: we should not be allowed to merge code to *remote*, if there are problems.
+While `tox` helps us substantially when we want to make sure everything works locally, it does not bring any protection against forgetfulness: we should not be allowed to merge code to *remote* if there are problems.
 
 We replicate the local `tox` automation by activating [Travis CI](https://travis-ci.org/), a [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) service. Travis CI runs the steps above each time a change is made to the Github codebase.
 
@@ -246,6 +246,6 @@ To use Travis CI, you should first authorize the service to integrate with Githu
 
 To configure the CI, we need to add a file called [.travis.yml](.travis.yml). If you inspect the file, you will realize that the content is very similar to [tox.ini](tox.ini), where we check *code styling, unit tests, linting, local setup and Docker build* automatically.
 
-Whenever there is a change in the git repo such as a push to *remote*, a new *pull request* (PR) or a branch merge, Travis CI is run automatically. You can inspect the runs [in real time](https://travis-ci.com/sertansenturk/tdd_demo). Moreover, you may configure Travis CI to send an e-mail and/or Slack notification, if something goes wrong.
+Whenever there is a change in the git repo such as a push to *remote*, a new *pull request* (PR) or a branch merge, Travis CI is run automatically. You can inspect the runs [in real-time](https://travis-ci.com/sertansenturk/tdd_demo). Moreover, you may configure Travis CI to send an e-mail and/or Slack notification, if something goes wrong.
 
-In Github, Travis CI (and *codecov*) reports are conveniently attached to the PRs. You may also configure the repo such that if a PR does not pass these checks, merging will not possible and therefore mitigating the risk to distribute defective code.
+In Github, Travis CI (and *codecov*) reports are conveniently attached to the PRs. You may also configure the repo such that if a PR does not pass these checks, merging will not be possible, mitigating the risk to distribute defective code.
