@@ -3,7 +3,9 @@ import os
 # Always prefer setuptools over distutils
 from setuptools import find_packages, setup
 
-from demo import __version__
+# Get version
+with open(os.path.join("", 'VERSION')) as version_file:
+    version = version_file.read().strip()
 
 # Get the long description from the README file
 here = os.path.abspath(os.path.dirname(__file__))
@@ -32,7 +34,7 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version=__version__,  # Required
+    version=version,  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
@@ -135,4 +137,11 @@ setup(
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=['numpy>=1.17,<2'],  # Optional
+
+    # Although 'package_data' is the preferred approach, in some case you may
+    # need to place data files outside of your packages. See:
+    # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
+    #
+    # In this case, 'data_files' will be installed into '<sys.prefix>/'
+    data_files=[('', ['VERSION', 'README.md', 'LICENSE'])],  # Optional
 )
