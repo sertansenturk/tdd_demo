@@ -235,3 +235,5 @@ tox
 ## Continuous integration
 
 Finally, we replicate the local automation using tox to [Travis CI](https://travis-ci.org/), a continuous integration service. Travis CI runs the steps above every time a change is made to the Github codebase.
+
+TODO: Integrate CI
