@@ -15,6 +15,9 @@ install:
   - pip install . # install package
   - docker build -t tdd-demo .
 script: 
-  - tox -c ./tox.ini
+  - tox -e flake8
+  - tox -e pylint
+  - tox -e docker
+  - tox
 after_success:
   - codecov # submit coverage to https://codecov.io/gh/sertansenturk/tdd_demo/
