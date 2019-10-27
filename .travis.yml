@@ -11,6 +11,8 @@ before_install:
 install:
   - pip install . # install package
 script: 
+  - flake8 demo
+  - flake8 setup.py
   - pytest --cov=demo # run tests
 after_success:
   - codecov # submit coverage
