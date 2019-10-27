@@ -236,6 +236,8 @@ tox
 
 While `tox` helps us substantially when we want to make sure everything works locally, it does not bring any protection against forgetfulness: we should not be allowed to merge code to *remote*, if there are problems.
 
-We replicate the local `tox` automation by enabling [Travis CI](https://travis-ci.org/), a continuous integration service. Travis CI runs the steps above each time a change is made to the Github codebase.
+We replicate the local `tox` automation by activating [Travis CI](https://travis-ci.org/), a [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) service. Travis CI runs the steps above each time a change is made to the Github codebase.
+
+To use Travis CI, you should first authorize the service to integrate with Github. Then you need to enable the repository. Please follow the [official tutorial](https://docs.travis-ci.com/user/tutorial/) to complete these steps.
 
 TODO: Integrate CI
