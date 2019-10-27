@@ -1,14 +1,14 @@
 # tdd_demo
 
-A simple demo for test driven development, automated testing, code style checking, and continous integration
+A simple demo for test-driven development, automated testing, code style checking, and continuous integration
 
-In this demo, we implement a simple function using test driven development. Later, we show how to automate the tests, setup, and coding style in our local machine. Finally, we do the automation using continuous integration service.
+In this demo, we implement a simple function using test-driven development. Later, we show how to automate the tests, setup, and coding style in our local machine. Finally, we do the automation using continuous integration service.
 
 Consider you are assigned the ticket below:
 
 ----------
 
-## Convert hz scale to cent scale
+## Convert Hz scale to cent scale
 
 **One-line summary (optional)**: Implement a method called `hz_to_cent` under the `demo` package in `converter.py`, which accepts an array of values in Hz and converts them to cents.
 
@@ -22,7 +22,7 @@ Consider you are assigned the ticket below:
 
 The output of the method is a `np.array` of cent values. The conversion formula is `np.log2(hz_seq / ref_hz) * NUM_CENTS_IN_OCTAVE`, where `NUM_CENTS_IN_OCTAVE = 1200`.
 
-**Unittests**
+**Unit tests**
 
 - `hz_seq` is not a `List` or `np.array`; raises a `ValueError`
 - At least one values in `hz_seq` is not between `20 Hz` and `20k Hz`; raises a `ValueError`
@@ -43,13 +43,13 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 
 **Acceptance Criteria**
 
-- Unittests must pass
+- Unit tests must pass
 - Function implemented
 
 **Extra Tasks**
 
 - A docker image created with the `demo` package installed. Base the `Dockerfile` on the Python 3.7-slim-buster official Docker image
-- Code styling, unittests, linting and setup checks automated by `tox`
+- Code styling, unit tests, linting and setup checks automated by `tox`
 - Tests, setup and Docker builds run automatically via Travis CI
 
 **Outcome**
@@ -65,11 +65,11 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 
 ----------
 
-## Unittests
+## Unit tests
 
-In test driven development, you initially start with unittests and later work on the solution. This way you can ensure that your implementation is well-thought and it fulfills the requirements.
+In test-driven development, you initially start with unit tests and later work on the solution. This way, you can ensure that your implementation is well-thought, and it fulfils the requirements.
 
-For unittests, we use [pytest](https://pytest.org/en/latest/), which is one of the most used unittest libraries for Python. Our tests live in a folder called `tests` under the repo. The modules are a mirror image of the `demo` package, with a prefix `test_` added to each module name. Having a parallel structure helps us to build small, incremental tests, and keep a track of what is being tested with ease.
+For unit tests, we use [pytest](https://pytest.org/en/latest/), which is one of the most used unit test libraries for Python. Our tests live in a folder called `tests` under the repo. The modules are a mirror image of the `demo` package, with a prefix `test_` added to each module name. Having a parallel structure helps us to build small, incremental tests, and keep track of what is being tested with ease.
 
 First, create a `virtualenv` to isolate our development environment from the OS Python. Please follow the [instructions to install `pip` and `virtualenv`](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/), if you don't have them on your system. Once they are installed, you can create a virtual environment by:
 
@@ -90,7 +90,7 @@ Install `pytest`:
 pip install pytest
 ```
 
-Run the unittests:
+Run the unit tests:
 
 ```bash
 pytest tests/
@@ -98,15 +98,15 @@ pytest tests/
 
 You may also add additional options, e.g. to control verbosity. Please check the `pytest` documentation for information.
 
-In TDD, you should implement the tests one-by-one, starting from the simplest, before you start coding the solution. You implement/build upon the solution after each test (or a meaningful set of similar tests) is implemented. This helps us to focus on a smaller step, and hence develop the solution easily and rapidly while closely following the requirements.
+In TDD, you should implement the tests one-by-one, starting from the simplest, before you start coding the solution. You implement/build upon the solution after each test (or a meaningful set of similar tests) is implemented. This stepwise approach makes us implement small increments, and hence develop a solution easily and rapidly while closely following the requirements.
 
-We use the so-called ["GIVEN, WHEN, THEN" pattern](https://pythontesting.net/strategy/given-when-then-2/) to write our tests. The unittests should not overlap as much as possible.
+We use the so-called ["GIVEN, WHEN, THEN" pattern](https://pythontesting.net/strategy/given-when-then-2/) to write our tests. The unit tests should not overlap as much as possible.
 
 ## Code coverage
 
-Code coverage is identifying what and how much the unittests cover the codebase. Undoubtedly, the coverage should be as high as possible. Nevertheless, it is not necessarily a good idea to obsess over 100% coverage. Typically, there would be bit of code, which would be trivial, tedious or unsuitable to test. An example is bootstrapping functions, which may be changed in near future. Trying to cover everything would take an unreasonable amount of time and it will take away from precious development time.
+Code coverage is identifying what and how much the unit tests cover the codebase. Undoubtedly, the coverage should be as high as possible. Nevertheless, it is not necessarily a good idea to obsess over 100% coverage. Typically, there would be a bit of code, which would be trivial, tedious or unsuitable for testing. An example is bootstrapping functions, which may be changed shortly. Trying to cover everything would take an unreasonable amount of time, and hence take away from precious development time.
 
-We will use a `pytest` extension called `pytest-cov` to measure the coverage. 
+We use a `pytest` extension called `pytest-cov` to measure the coverage.
 
 **Important:** make sure that the virtual environment is activated.
 
@@ -148,7 +148,7 @@ For more options, please refer to the `pytest-cov` [documentation](https://pytes
 
 When you are writing code, especially if it is going to be used/developed by others, it is important to follow a consistent style so that the code is readable and frustrations over subjective decisions are reduced.
 
-There are several style guides for Python. The most popular is arguably **PEP 8**, which is the official guideline. We use `flake8`, which is a command line tool for checking PEP8 rules automatically.
+There are several style guides for Python. The most popular is arguably **PEP 8**, which is the official guideline. We use `flake8`, which is a command-line tool for checking PEP8 rules automatically.
 
 **Important:** make sure that the virtual environment is activated.
 
@@ -166,7 +166,7 @@ flake8 demo
 
 ## Linting
 
-Linters sniff out both stylistic amd syntatical problems (such as complex functions, unused variables, or unreachable code), which not only highlight unconventional coding practices but may also indicate potential errors in implementation. Therefore, [linting](https://en.wikipedia.org/wiki/Lint_%28software%29) takes code styling to one step further because it checks how the code is executed in addition to its appearance.
+Linters sniff out both stylistic and syntactical problems (such as complex functions, unused variables, or unreachable code), which not only highlight unconventional coding practices but may also indicate potential errors in implementation. Therefore, [linting](https://en.wikipedia.org/wiki/Lint_%28software%29) takes code styling to one step further because it checks how the code is executed in addition to its appearance.
 
 We use `pylint` for checking linting problems. 
 
@@ -194,7 +194,7 @@ A more convenient option to supply the additional options is to save them in fro
 
 ## Create a Docker image
 
-We use [Docker](https://www.docker.com/) for containarization. This way we can decouple the code from the hardware, and easily deploy it to anywhere.
+We use [Docker](https://www.docker.com/) for containerization. This way, we can decouple the code from the hardware, and deploy it to anywhere with ease.
 
 For demonstration purposes, we create a simple Dockerfile, which has the `demo` package installed.
 
@@ -210,13 +210,11 @@ Then run an interactive container by:
 docker run -it tdd-demo:0.1
 ```
 
-The entrypoint for the running image is the Python shell. 
-
-TODO: create a script which import demo package automatically.
+The entry point for the running image is the Python shell.
 
 ## Local automation
 
-It will be too tedious to run all the steps above. Instead, we use [tox](https://tox.readthedocs.io/en/latest/) to automate.
+During development, it would be too tedious to run all the steps above. Instead, we use [tox](https://tox.readthedocs.io/en/latest/) to automate.
 
 **Important:** make sure that the virtual environment is activated.
 
@@ -226,7 +224,7 @@ Install `tox` by:
 pip install tox
 ```
 
-We created a [`tox.ini` file](tox.ini) to configure the automation, i.e. unittests, code styling, linting, Docker setup. We also make the checks on Python versions from `3.5` to `3.7`.
+We created a [`tox.ini` file](tox.ini) to configure the automation, i.e. unit tests, code styling, linting, Docker setup. We also make the checks on Python versions from `3.5` to `3.7`.
 
 Having set the `tox.ini` file, calling `tox` is trivial:
 
@@ -234,6 +232,6 @@ Having set the `tox.ini` file, calling `tox` is trivial:
 tox
 ```
 
-## Continous integration
+## Continuous integration
 
-Finally, we replicate the local automation using tox to [Travis CI](https://travis-ci.org/), a continous integration service. Travis CI runs the steps above every time a change is made to the Github codebase.
+Finally, we replicate the local automation using tox to [Travis CI](https://travis-ci.org/), a continuous integration service. Travis CI runs the steps above every time a change is made to the Github codebase.
