@@ -224,13 +224,15 @@ Install `tox` by:
 pip install tox
 ```
 
-We created a [`tox.ini` file](tox.ini) to configure the automation, i.e. unit tests, code styling, linting, Docker setup. We also make the checks on Python versions from `3.5` to `3.7`.
+We created a [`tox.ini` file](tox.ini) to configure the automation, i.e. unit tests, code styling, linting, Docker setup. We make the checks on whichever Python versions installed locally from `3.5` to `3.7`.
 
 Having set the `tox.ini` file, calling `tox` is trivial:
 
 ```bash
 tox
 ```
+
+After running `tox`, a coverage report will be created in the folder `htmlcov`. You can inspect the report in the browser of your choice.
 
 ## Continuous integration
 
@@ -240,4 +242,3 @@ We replicate the local `tox` automation by activating [Travis CI](https://travis
 
 To use Travis CI, you should first authorize the service to integrate with Github. Then you need to enable the repository. Please follow the [official tutorial](https://docs.travis-ci.com/user/tutorial/) to complete these steps.
 
-TODO: Integrate CI

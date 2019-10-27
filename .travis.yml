@@ -3,6 +3,8 @@ python:
   - 3.5
   - 3.6
   - 3.7
+services:
+  - docker
 before_install:
   - python --version
   - pip install -U pip
@@ -10,6 +12,8 @@ before_install:
   - pip install codecov
   - pip install flake8
   - pip install pylint
+  - docker build -t tdd-demo:0.1 .
+  - docker ps -a
 install:
   - pip install . # install package
 script: 
@@ -17,5 +21,6 @@ script:
   - flake8 setup.py
   - pylint demo
   - pytest --cov=demo # run tests
+  - docker run -it tdd-demo:0.1 -c "from demo.converter import hz_to_cent; print(hz_to_cent([500], 250))"
 after_success:
   - codecov # submit coverage
