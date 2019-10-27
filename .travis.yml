@@ -4,22 +4,24 @@ matrix:
     - name: "Docker build"
       services: docker
       python: 3.7
-      env: TOXENV=docker
+      env: TOX_ENV=docker
       before_install: 
         - docker --version
         - pip install -U pip
         - pip install tox-travis
       install: docker build -t tdd-demo .
-      script: tox -e $TOXENV
+      script: tox -e $TOX_ENV
     - name: "Python 3.5"
       python: 3.5
-      env: TOXENV=flake8,pylint,py35
+      env: TOX_PYTHON_ENV=py35
     - name: "Python 3.6"
       python: 3.6
-      env: TOXENV=flake8,pylint,py36
+      env: TOX_PYTHON_ENV=py36
     - name: "Python 3.7"
       python: 3.7
-      env: TOXENV=flake8,pylint,py37
+      env: TOX_PYTHON_ENV=py37
+env:
+  COMMON_TOX_ENVS=flake8,pylint
 before_install:
   - python --version
   - pip install -U pip
@@ -28,6 +30,6 @@ before_install:
 install:
   - pip install . # install package
 script: 
-  - tox -e $TOXENV
+  - tox -e $COMMON_TOX_ENVS,$TOX_PYTHON_ENV
 after_success:
   - codecov # submit coverage to https://codecov.io/gh/sertansenturk/tdd_demo/
