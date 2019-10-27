@@ -21,7 +21,8 @@ matrix:
       python: 3.7
       env: TOX_PYTHON_ENV=py37
 env:
-  COMMON_TOX_ENVS=flake8,pylint
+  global:
+    COMMON_TOX_ENVS=flake8,pylint
 before_install:
   - python --version
   - pip install -U pip
