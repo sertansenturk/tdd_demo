@@ -9,11 +9,13 @@ before_install:
   - pip install -U pytest pytest-cov
   - pip install codecov
   - pip install flake8
+  - pip install pylint
 install:
   - pip install . # install package
 script: 
   - flake8 demo
   - flake8 setup.py
+  - pylint demo
   - pytest --cov=demo # run tests
 after_success:
   - codecov # submit coverage
