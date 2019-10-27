@@ -1,5 +1,7 @@
 # tdd_demo
 
+[![Build Status](https://travis-ci.com/sertansenturk/tdd_demo.svg?branch=master)](https://travis-ci.com/sertansenturk/tdd_demo)
+
 A simple demo for test-driven development, automated testing, code style checking, and continuous integration
 
 In this demo, we implement a simple function using test-driven development. Later, we show how to automate the tests, setup, and coding style in our local machine. Finally, we do the automation using continuous integration service.
@@ -49,7 +51,7 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 **Extra Tasks**
 
 - A docker image created with the `demo` package installed. Base the `Dockerfile` on the Python 3.7-slim-buster official Docker image
-- Code styling, unit tests, linting and setup checks automated by `tox`
+- Code styling, unit tests, linting, setup and Docker build automatically validated by `tox`
 - Tests, setup and Docker builds run automatically via Travis CI
 
 **Outcome**
@@ -242,3 +244,6 @@ We replicate the local `tox` automation by activating [Travis CI](https://travis
 
 To use Travis CI, you should first authorize the service to integrate with Github. Then you need to enable the repository. Please follow the [official tutorial](https://docs.travis-ci.com/user/tutorial/) to complete these steps.
 
+To configure the CI, we need to add a file called [.travis.yml](.travis.yml). If you inspect the file, you will realize that the content is very similar to [tox.ini](tox.ini), where we check *code styling, unit tests, linting, local setup and Docker build* automatically.
+
+Whenever there is a change in the git repo such as a push to *remote*, a new *pull request* or a branch merge, Travis CI is run automatically. You can inspect the runs [in real time](https://travis-ci.com/sertansenturk/tdd_demo). Moreover, you may configure Travis CI to send an e-mail and/or Slack notification, if something goes wrong.
