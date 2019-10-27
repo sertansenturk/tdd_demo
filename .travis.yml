@@ -7,19 +7,20 @@ services:
   - docker
 before_install:
   - python --version
+  - docker --version
   - pip install -U pip
-  - pip install -U pytest pytest-cov
-  - pip install codecov
   - pip install flake8
   - pip install pylint
+  - pip install -U pytest pytest-cov
+  - pip install codecov
 install:
-  - docker build -t tdd-demo:0.1 .
   - pip install . # install package
+  - docker build -t tdd-demo .
 script: 
   - flake8 demo
   - flake8 setup.py
   - pylint demo
   - pytest --cov=demo
-  - docker run tdd-demo:0.1 -c "from demo.converter import hz_to_cent; print(hz_to_cent([500], 250))"
+  - docker run tdd-demo -c "from demo.converter import hz_to_cent; print(hz_to_cent([500], 250))"
 after_success:
   - codecov # submit coverage to https://codecov.io/gh/sertansenturk/tdd_demo/
