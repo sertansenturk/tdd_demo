@@ -1,6 +1,16 @@
 language: python
 matrix:
   include:
+    - name: "Docker build"
+      services: docker
+      python: 3.7
+      env: TOXENV=docker
+      before_install: 
+        - docker --version
+        - pip install -U pip
+        - pip install tox-travis
+      install: docker build -t tdd-demo .
+      script: tox -e $TOXENV
     - name: "Python 3.5"
       python: 3.5
       env: TOXENV=flake8,pylint,py35
@@ -10,17 +20,6 @@ matrix:
     - name: "Python 3.7"
       python: 3.7
       env: TOXENV=flake8,pylint,py37
-    - name: "Docker build"
-      python: 3.7
-      env: TOXENV=docker
-      before_install: 
-        - docker --version
-        - pip install -U pip
-        - pip install tox-travis
-      install: docker build -t tdd-demo .
-      script: tox -e docker
-services:
-  - docker
 before_install:
   - python --version
   - pip install -U pip
