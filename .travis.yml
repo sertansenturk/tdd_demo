@@ -3,13 +3,13 @@ matrix:
   include:
     - name: "Python 3.5"
       python: 3.5
-      env: TOXENV=py35
+      env: TOXENV=flake8,pylint,py35
     - name: "Python 3.6"
       python: 3.6
-      env: TOXENV=py36
+      env: TOXENV=flake8,pylint,py36
     - name: "Python 3.7"
       python: 3.7
-      env: TOXENV=py37
+      env: TOXENV=flake8,pylint,py37
     - name: "Docker build"
       python: 3.7
       env: TOXENV=docker
@@ -25,6 +25,6 @@ install:
   - pip install . # install package
   - docker build -t tdd-demo .
 script: 
-  - tox -e flake8,pylint,$TOXENV
+  - tox -e $TOXENV
 after_success:
   - codecov # submit coverage to https://codecov.io/gh/sertansenturk/tdd_demo/
