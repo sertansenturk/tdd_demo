@@ -42,7 +42,7 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 
 **Extra Tasks**
 - A docker image created with the `demo` package installed. Base the `Dockerfile` on the Python 3.7-slim-buster official Docker image
-- Code styling, unittests, linting and setup checks automated by `tox`.
+- Code styling, unittests, linting and setup checks automated by `tox`
 - Tests, setup and Docker builds run automatically via Travis CI
 
 **Outcome**
@@ -92,9 +92,9 @@ In TDD, you should implement the tests one-by-one, starting from the simplest, b
 
 We use the so-called ["GIVEN, WHEN, THEN" pattern](https://pythontesting.net/strategy/given-when-then-2/) to write our tests. The unittests should not overlap as much as possible.
 
-# Test coverage
+# Code coverage
 
-Test coverage is about measuring how much your unittests cover your codebase. Undoubtedly, the coverage should be as high as possible. Nevertheless, it is not necessarily a good idea to obsess over 100% coverage. Typically, there would be parts, which would be trivial, tedious or unsuitable to test, e.g. bootstrapping code, which will be changed in near future. Trying to cover everything would take an unreasonable amount of time and it will take away from precious development time.
+Code coverage is identifying what and how much the unittests cover the codebase. Undoubtedly, the coverage should be as high as possible. Nevertheless, it is not necessarily a good idea to obsess over 100% coverage. Typically, there would be bit of code, which would be trivial, tedious or unsuitable to test. An example is bootstrapping functions, which may be changed in near future. Trying to cover everything would take an unreasonable amount of time and it will take away from precious development time.
 
 We will use a `pytest` extension called `pytest-cov` to measure the coverage. 
 
@@ -132,11 +132,12 @@ Above, we are pointing that we want the coverage for the package `demo` and we w
 
 For more options, please refer to the `pytest-cov` [documentation](https://pytest-cov.readthedocs.io/en/latest/).
 
-TODO: add config
-
 # Code styling
 
-TODO: Description
+When you are writing code, especially if it is going to be used/developed by others, it is important to follow a consistent style so that the code is readable and frustrations over subjective decisions are reduced.
+
+There are several style guides for Python. The most popular is arguably **PEP 8**, which is the official guideline. We use `flake8`, which is a command line tool for checking PEP8 rules automatically.
+
 **Important:** make sure that the virtual environment is activated.
 
 Install `flake8` by:
@@ -145,11 +146,18 @@ Install `flake8` by:
 pip install flake8
 ```
 
-TODO: code
+Run `flake8` by pointing to the main package:
+
+```bash
+flake8 demo
+```
 
 # Linting
 
-TODO: Description
+Linters sniff out both stylistic amd syntatical problems (such as complex functions, unused variables, or unreachable code), which not only highlight unconventional coding practices but may also indicate potential errors in implementation. Therefore, [linting](https://en.wikipedia.org/wiki/Lint_%28software%29) takes code styling to one step further because it checks how the code is executed in addition to its appearance.
+
+We use `pylint` for checking linting problems. 
+
 **Important:** make sure that the virtual environment is activated.
 
 Install `pylint` by:
@@ -158,12 +166,24 @@ Install `pylint` by:
 pip install pylint
 ```
 
-TODO: code
+Run `pylint` by pointing to the main package:
+
+```bash
+pylint demo
+```
+
+You may not necessarily want to deal with all reported issues, e.g. *C0114: missing-module-docstring*, which checks if a [Python module](https://docs.python.org/3/tutorial/modules.html) has a docstring. We can disable this check by including the `disable` option:
+
+```bash
+pylint demo --disable=C0114
+```
+
+A more convenient option to supply the additional options is to save them in from a configuration. Please refer to `.pylintrc` in this repo for a simple example. For more options, please refer to the pylint documentation](http://pylint.pycqa.org/en/latest/user_guide/run.html#command-line-options).
 
 # Create a Docker image
 We use [Docker](https://www.docker.com/) for containarization. This way we can decouple the code from the hardware, and easily deploy it to anywhere.
 
-For demonstration, we create a simple Dockerfile, which has the `demo` package installed.
+For demonstration purposes, we create a simple Dockerfile, which has the `demo` package installed.
 
 To build the Docker image, run:
 
@@ -182,7 +202,10 @@ The entrypoint for the running image is the Python shell.
 TODO: create a script which import demo package automatically.
 
 # Local automation
-We use [tox](https://tox.readthedocs.io/en/latest/), to automate the steps above in our local machine. **Important:** make sure that the virtual environment is activated.
+
+It will be too tedious to run all the steps above. Instead, we use [tox](https://tox.readthedocs.io/en/latest/) to automate.
+
+**Important:** make sure that the virtual environment is activated.
 
 Install `tox` by:
 
@@ -190,7 +213,9 @@ Install `tox` by:
 pip install tox
 ```
 
-Calling `tox` is trivial:
+We created a `tox.ini` file to configure the automation, i.e. unittests, code styling, linting, Docker setup. We also make the checks on Python versions `3.5` to `3.7`.
+
+Having set the `tox.ini` file, calling `tox` is trivial:
 
 ```bash
 tox
