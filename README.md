@@ -14,7 +14,7 @@ Consider you are assigned the ticket below:
 
 **One-line summary (optional)**: Implement a method called `hz_to_cent` under the `demo` package in `converter.py`, which accepts an array of values in Hz and converts them to cents.
 
-**Reason**: This is a common transformation we have to apply for many signal processing tasks.
+**Reason**: This is a common transformation we have to apply in many signal processing tasks.
 
 **Design**: Create a method which has the inputs:
 
@@ -69,7 +69,7 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 
 ## Good development practices
 
-Below we are assuming that you are using [git](https://en.wikipedia.org/wiki/Git), and you are familiar with the terminology. If you are not using `git` yet, start already!!
+*We assume that you are using [git](https://en.wikipedia.org/wiki/Git), and you are familiar with the terminology. If you are not using `git` yet, start already!!*
 
 As a good practice, never do development on your `master` branch, unless you are working on a `hot-fix`. You should open a new branch for each ticket/task. Once you are finished, create a `pull request` (PR) to merge your branch, instead of merging directly. PRs are quite useful for reviewing your code & getting approval/suggestions from others.
 
