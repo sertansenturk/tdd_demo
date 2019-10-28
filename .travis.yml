@@ -11,6 +11,7 @@ matrix:
         - pip install tox-travis
       install: docker build -t tdd-demo .
       script: tox -e $TOX_ENV
+      after_success: # do nothing
     - name: "Python 3.5"
       python: 3.5
       env: TOX_PYTHON_ENV=py35
