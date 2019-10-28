@@ -170,7 +170,7 @@ flake8 demo
 
 Linters sniff out both stylistic and syntactical problems (such as complex functions, unused variables, or unreachable code), which not only highlight unconventional coding practices but may also indicate potential errors in implementation. Therefore, [linting](https://en.wikipedia.org/wiki/Lint_%28software%29) takes code styling to one step further because it checks how the code is executed in addition to its appearance.
 
-We use `pylint` for checking linting problems. 
+We use `pylint` for checking linting problems.
 
 **Important:** make sure that the virtual environment is activated.
 
@@ -244,7 +244,7 @@ We replicate the local `tox` automation by activating [Travis CI](https://travis
 
 To use Travis CI, you should first authorize the service to integrate with Github. Then you need to enable the repository. Please follow the [official tutorial](https://docs.travis-ci.com/user/tutorial/) to complete these steps.
 
-To configure the CI, we need to add a file to the repo, called [.travis.yml](.travis.yml). If you inspect the file, you will realize that the content is very similar to [tox.ini](tox.ini), where we automate the checks for *code styling, unit tests, linting, local setup* and *Docker build*.
+To configure the CI, we need to add a file to the repo, called [.travis.yml](.travis.yml). If you inspect the file, you will realize that we reuse the [tox.ini](tox.ini) configuration, where we had already automated the checks for *code styling, unit tests, linting, local setup* and *Docker build*.
 
 Whenever there is a change in the git repo such as a push to *remote*, a new *pull request* (PR) or a branch merge, Travis CI is run automatically. You can inspect the runs [in real-time](https://travis-ci.com/sertansenturk/tdd_demo). Moreover, you may configure Travis CI to send an e-mail and/or Slack notification, if something goes wrong.
 
