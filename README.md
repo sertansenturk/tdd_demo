@@ -249,3 +249,11 @@ To configure the CI, we need to add a file to the repo, called [.travis.yml](.tr
 Whenever there is a change in the git repo such as a push to *remote*, a new *pull request* (PR) or a branch merge, Travis CI is run automatically. You can inspect the runs [in real-time](https://travis-ci.com/sertansenturk/tdd_demo). Moreover, you may configure Travis CI to send an e-mail and/or Slack notification, if something goes wrong.
 
 In Github, Travis CI (and *codecov*) reports are conveniently attached to the PRs. You may also configure the repo such that these checks have to be passed for merging, and hence mitigate the risk to distribute defective code.
+
+## Next steps
+
+There is still a lot to cover, e.g. extending the style checks and linting (e.g. import order, docstring tests), [mocking](https://stackoverflow.com/a/2666006), [smoke tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)), [integration tests](https://en.wikipedia.org/wiki/Integration_testing), [regression tests](https://en.wikipedia.org/wiki/Regression_testing), [continous delivery/deployment](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). We may cover these in this repo in the future, if there is some demand. :)
+
+## References
+
+[1] Şentürk, Sertan. (2017, January). Why Reproducibility Matters? A Personal Experience. Zenodo. http://doi.org/10.5281/zenodo.255537
