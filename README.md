@@ -69,11 +69,11 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 
 ## Good development practices
 
-Below we are assuming that you are using [git](https://en.wikipedia.org/wiki/Git) and you are familiar with the terminology. If you are not using `git` yet, start already!!
+Below we are assuming that you are using [git](https://en.wikipedia.org/wiki/Git), and you are familiar with the terminology. If you are not using `git` yet, start already!!
 
-As a good practice, never do development on your `master` branch, unless you are working on a `hot-fix`. You should open a new branch for each ticket/task. Once you are finished create a `pull request` (PR) to merge your branch, instead of merging directly. PRs are quite useful for reviewing your code & getting approval/suggestions from others.
+As a good practice, never do development on your `master` branch, unless you are working on a `hot-fix`. You should open a new branch for each ticket/task. Once you are finished, create a `pull request` (PR) to merge your branch, instead of merging directly. PRs are quite useful for reviewing your code & getting approval/suggestions from others.
 
-If your code is used by many people, you should care for the stability. For this reason, you should properly version the code as you do further development. It is good idea to follow the `MAJOR.MINOR.PATCH` pattern of [semantic versioning](https://semver.org/) for versioning. Another complementary approach is to have a `development` branch, where your PRs are merged to instead of `master`. Once the `dev` branch is has ameaningful amount of changes and it tested thoroughly, you can increment the package version, and merge `dev` to `master` with a PR.
+If many people use your code, you should care for the stability. For this reason, you should properly version the code as you do further development. It is a good idea to follow the `MAJOR.MINOR.PATCH` pattern of [semantic versioning](https://semver.org/) for versioning. Another complementary approach is to have a `development` branch, where your PRs are merged instead of `master`. Once the `dev` branch has a meaningful amount of changes and it tested thoroughly, you can increment the package version, and merge `dev` to `master` with a PR.
 
 ## Unit tests
 
