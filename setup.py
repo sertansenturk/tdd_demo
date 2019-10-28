@@ -144,4 +144,7 @@ setup(
     #
     # In this case, 'data_files' will be installed into '<sys.prefix>/'
     data_files=[('', ['VERSION', 'README.md', 'LICENSE'])],  # Optional
+
+    # Specify the license
+    license='MIT License'
 )
