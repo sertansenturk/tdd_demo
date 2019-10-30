@@ -148,7 +148,7 @@ For more options, please refer to the `pytest-cov` [documentation](https://pytes
 
 When you are writing code, especially if it is going to be used/developed by others, it is important to follow a consistent style so that the code is readable and frustrations over subjective decisions are reduced.
 
-There are several style guides for Python. The most popular is arguably **PEP 8**, which is the official guideline. We use `flake8`, which is a command-line tool for checking PEP8 rules automatically.
+There are several style guides for Python. The most popular is arguably **PEP 8**, which is the official guideline. We use `flake8`, which is a command-line tool for checking [PEP8](https://www.python.org/dev/peps/pep-0008/) rules automatically.
 
 **Important:** make sure that the virtual environment is activated.
 
@@ -168,7 +168,7 @@ flake8 demo
 
 Linters sniff out both stylistic and syntactical problems (such as complex functions, unused variables, or unreachable code), which not only highlight unconventional coding practices but may also indicate potential errors in implementation. Therefore, [linting](https://en.wikipedia.org/wiki/Lint_%28software%29) takes code styling to one step further because it checks how the code is executed in addition to its appearance.
 
-We use `pylint` for checking linting problems. 
+We use `pylint` for checking linting problems.
 
 **Important:** make sure that the virtual environment is activated.
 
