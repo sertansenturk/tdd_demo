@@ -1,26 +1,35 @@
 language: python
-python:
-  - 3.5
-  - 3.6
-  - 3.7
-services:
-  - docker
+matrix:
+  include:
+    - name: "Docker build"
+      services: docker
+      python: 3.7
+      env: TOX_ENV=docker
+      before_install: 
+        - docker --version
+        - pip install -U pip
+        - pip install tox-travis
+      install: # installed by tox
+      script: tox -e $TOX_ENV
+      after_success: # do nothing
+    - name: "Python 3.5"
+      python: 3.5
+      env: TOX_PYTHON_ENV=py35
+    - name: "Python 3.6"
+      python: 3.6
+      env: TOX_PYTHON_ENV=py36
+    - name: "Python 3.7"
+      python: 3.7
+      env: TOX_PYTHON_ENV=py37
 before_install:
-  - python --version
-  - docker --version
+  - ls -la
   - pip install -U pip
-  - pip install flake8
-  - pip install pylint
-  - pip install -U pytest pytest-cov
+  - pip install tox-travis
   - pip install codecov
 install:
   - pip install . # install package
-  - docker build -t tdd-demo .
+  - pip show tdd-demo
 script: 
-  - flake8 demo
-  - flake8 setup.py
-  - pylint demo
-  - pytest --cov=demo
-  - docker run tdd-demo -c "from demo.converter import hz_to_cent; print(hz_to_cent([500], 250))"
+  - tox -e flake8,pylint,$TOX_PYTHON_ENV
 after_success:
   - codecov # submit coverage to https://codecov.io/gh/sertansenturk/tdd_demo/

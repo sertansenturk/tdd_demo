@@ -1,6 +1,6 @@
 # tdd_demo
 
-[![Build Status](https://travis-ci.com/sertansenturk/tdd_demo.svg?branch=master)](https://travis-ci.com/sertansenturk/tdd_demo) [![codecov](https://codecov.io/gh/sertansenturk/tdd_demo/branch/master/graph/badge.svg)](https://codecov.io/gh/sertansenturk/tdd_demo)
+[![Build Status](https://travis-ci.com/sertansenturk/tdd_demo.svg?branch=master)](https://travis-ci.com/sertansenturk/tdd_demo) [![codecov](https://codecov.io/gh/sertansenturk/tdd_demo/branch/master/graph/badge.svg)](https://codecov.io/gh/sertansenturk/tdd_demo) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A simple demo for test-driven development, automated testing, code style checking, and continuous integration
 
@@ -14,7 +14,7 @@ Consider you are assigned the ticket below:
 
 **One-line summary (optional)**: Implement a method called `hz_to_cent` under the `demo` package in `converter.py`, which accepts an array of values in Hz and converts them to cents.
 
-**Reason**: This is a common transformation we have to apply for many signal processing tasks.
+**Reason**: This is a common transformation we have to apply in many signal processing tasks.
 
 **Design**: Create a method which has the inputs:
 
@@ -66,6 +66,14 @@ The output of the method is a `np.array` of cent values. The conversion formula 
 - Link dependencies, if applicable
 
 ----------
+
+## Good development practices
+
+*We assume that you are using [git](https://en.wikipedia.org/wiki/Git), and you are familiar with the terminology and the commands. If you are not using `git` yet, start already!!*
+
+As a good practice, never do development on your `master` branch, unless you are working on a `hot-fix`. You should open a new branch for each ticket/task. Once you are finished, create a `pull request` (PR) to merge your branch, instead of merging directly. PRs are quite useful for reviewing your code & getting approval/suggestions from others.
+
+If many people use your code, you should care for the stability. For this reason, you should properly version the code as you do further development. It is a good idea to follow the `MAJOR.MINOR.PATCH` pattern of [semantic versioning](https://semver.org/). Another complementary approach is to have a `development` branch, where your PRs are merged instead of `master`. Once the `dev` branch has a meaningful amount of changes and it tested thoroughly, you can increment the package version, and merge `dev` to `master` with another PR.
 
 ## Unit tests
 
@@ -192,11 +200,11 @@ You may not necessarily want to deal with all reported issues, e.g. *C0114: miss
 pylint demo --disable=C0114
 ```
 
-A more convenient option to supply the additional options is to save them in from a configuration. Please refer to [`.pylintrc` file](.pylintrc) in this repo for a simple example. For more options, please refer to the [pylint documentation](http://pylint.pycqa.org/en/latest/user_guide/run.html#command-line-options).
+A more convenient option is to supply the the additional options from a configuration file. Please refer to [`.pylintrc` file](.pylintrc) in this repo for a simple example. For more options, please refer to the [pylint documentation](http://pylint.pycqa.org/en/latest/user_guide/run.html#command-line-options).
 
 ## Create a Docker image
 
-We use [Docker](https://www.docker.com/) for containerization. This way, we can decouple the code from the hardware, and deploy it to anywhere with ease.
+We use [Docker](https://www.docker.com/) for containerization. This way, we can decouple the code from the platform, and deploy it to anywhere with ease.
 
 For demonstration purposes, we create a simple Dockerfile, which has the `demo` package installed.
 
@@ -240,12 +248,20 @@ After running `tox`, a coverage report will be created in the folder `htmlcov`. 
 
 While `tox` helps us substantially when we want to make sure everything works locally, it does not bring any protection against forgetfulness: we should not be allowed to merge code to *remote* if there are problems.
 
-We replicate the local `tox` automation by activating [Travis CI](https://travis-ci.org/), a [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) service. Travis CI runs the steps above each time a change is made to the Github codebase.
+We replicate the local `tox` automation by activating the [Travis CI](https://travis-ci.org/), a [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) service. Travis CI runs the steps above each time a change is made to the Github codebase.
 
 To use Travis CI, you should first authorize the service to integrate with Github. Then you need to enable the repository. Please follow the [official tutorial](https://docs.travis-ci.com/user/tutorial/) to complete these steps.
 
-To configure the CI, we need to add a file to the repo, called [.travis.yml](.travis.yml). If you inspect the file, you will realize that the content is very similar to [tox.ini](tox.ini), where we automate the checks for *code styling, unit tests, linting, local setup* and *Docker build*.
+To configure the CI, we need to add a file to the repo, called [.travis.yml](.travis.yml). If you inspect the file, you will realize that we reuse the [tox.ini](tox.ini) configuration, where we had already automated the checks for *code styling, unit tests, linting, local setup* and *Docker build*.
 
-Whenever there is a change in the git repo such as a push to *remote*, a new *pull request* (PR) or a branch merge, Travis CI is run automatically. You can inspect the runs [in real-time](https://travis-ci.com/sertansenturk/tdd_demo). Moreover, you may configure Travis CI to send an e-mail and/or Slack notification, if something goes wrong.
+Whenever there is a change in the git repo such as a push to *remote*, a new *pull request*, a branch merge, or a new tag, Travis CI runs automatically. You can inspect the run [in real-time](https://travis-ci.com/sertansenturk/tdd_demo). Moreover, you may configure Travis CI to send an e-mail and/or Slack notification, if something goes wrong.
 
-In Github, Travis CI (and *codecov*) reports are conveniently attached to the PRs. You may also configure the repo such that these checks have to be passed for merging, and hence mitigate the risk to distribute defective code.
+In Github, Travis CI (and *codecov*) reports are conveniently attached to the PRs. You may also configure the repo such that these checks have to be passed for merging, and therefore mitigate the risk to distribute defective code.
+
+## Next steps
+
+There is still a lot to cover, e.g. extending the style checks and linting (import order, docstring tests etc.), [mocking](https://stackoverflow.com/a/2666006), [smoke tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)), [integration tests](https://en.wikipedia.org/wiki/Integration_testing), [regression tests](https://en.wikipedia.org/wiki/Regression_testing), [continous delivery/deployment](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). We may cover these in this repo in the future, if there is some demand. :)
+
+## References
+
+[1] Şentürk, Sertan. (2017, January). Why Reproducibility Matters? A Personal Experience. Zenodo. http://doi.org/10.5281/zenodo.255537

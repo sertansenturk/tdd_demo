@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.0]
+
+- Improved Travis CI checks (using tox, isolated Docker build)
+
 ## [0.2.0]
 
 - Added Travis CI integration
