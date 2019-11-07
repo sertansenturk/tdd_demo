@@ -213,13 +213,13 @@ For demonstration purposes, we create a simple Dockerfile, which has the `demo` 
 To build the Docker image, run:
 
 ```bash
-docker build -t tdd-demo:0.1 .
+docker build -t tdd-demo:1.0 .
 ```
 
 Then run an interactive container by:
 
 ```bash
-docker run -it tdd-demo:0.1
+docker run -it tdd-demo:1.0
 ```
 
 The entry point for the running image is the Python shell.
