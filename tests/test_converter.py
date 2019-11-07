@@ -138,6 +138,19 @@ def test_hz_to_cent_empty_hz_seq():
     np.testing.assert_equal(result, expected)
 
 
+def test_hz_to_cent_nan_hz_seq():
+    # GIVEN
+    hz_seq = [np.nan]
+    ref_hz = 220
+
+    # WHEN
+    result = hz_to_cent(hz_seq, ref_hz)
+
+    # THEN
+    expected = np.array([np.nan])
+    np.testing.assert_equal(result, expected)
+
+
 def test_hz_to_cent_hz_seq_ref_hz_same():
     # GIVEN
     hz_seq = [440]
