@@ -1,3 +1,6 @@
+# local jupyter vars
+.local/
+
 # VS code
 .vscode/
 

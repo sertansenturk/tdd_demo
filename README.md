@@ -1,6 +1,6 @@
 # tdd_demo
 
-[![Build Status](https://travis-ci.com/sertansenturk/tdd_demo.svg?branch=master)](https://travis-ci.com/sertansenturk/tdd_demo) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.com/sertansenturk/tdd_demo.svg?branch=master)](https://travis-ci.com/sertansenturk/tdd_demo) [![codecov](https://codecov.io/gh/sertansenturk/tdd_demo/branch/master/graph/badge.svg)](https://codecov.io/gh/sertansenturk/tdd_demo) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A simple demo for test-driven development, automated testing, code style checking, and continuous integration
 
@@ -158,7 +158,7 @@ For more options, please refer to the `pytest-cov` [documentation](https://pytes
 
 When you are writing code, especially if it is going to be used/developed by others, it is important to follow a consistent style so that the code is readable and frustrations over subjective decisions are reduced.
 
-There are several style guides for Python. The most popular is arguably **PEP 8**, which is the official guideline. We use `flake8`, which is a command-line tool for checking PEP8 rules automatically.
+There are several style guides for Python. The most popular is arguably **PEP 8**, which is the official guideline. We use `flake8`, which is a command-line tool for checking [PEP8](https://www.python.org/dev/peps/pep-0008/) rules automatically.
 
 **Important:** make sure that the virtual environment is activated.
 
