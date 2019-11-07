@@ -75,6 +75,8 @@ As a good practice, never do development on your `master` branch, unless you are
 
 If many people use your code, you should care for the stability. For this reason, you should properly version the code as you do further development. It is a good idea to follow the `MAJOR.MINOR.PATCH` pattern of [semantic versioning](https://semver.org/). Another complementary approach is to have a `development` branch, where your PRs are merged instead of `master`. Once the `dev` branch has a meaningful amount of changes and it tested thoroughly, you can increment the package version, and merge `dev` to `master` with another PR.
 
+While merging `dev` to `master`, it is typically useful to add a *git tag*. In addition, many `git` services such as *Github*, allow you to create a *release* with a tag. For instance, refer to the [v1.0.0 release](https://github.com/sertansenturk/tdd_demo/releases/tag/v1.0.0) for the first stable version of this repo.
+
 ## Unit tests
 
 In test-driven development, you initially start with unit tests and later work on the solution. This way, you can ensure that your implementation is well-thought, and it fulfils the requirements.
@@ -260,7 +262,7 @@ In Github, Travis CI (and *codecov*) reports are conveniently attached to the PR
 
 ## Next steps
 
-There is still a lot to cover, e.g. extending the style checks and linting (import order, docstring tests etc.), [mocking](https://stackoverflow.com/a/2666006), [smoke tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)), [integration tests](https://en.wikipedia.org/wiki/Integration_testing), [regression tests](https://en.wikipedia.org/wiki/Regression_testing), [continous delivery/deployment](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). We may cover these in this repo in the future, if there is some demand. :)
+There is still a lot to cover, e.g. extending the style checks and linting (import order, docstring tests etc.), [mocking](https://stackoverflow.com/a/2666006), [smoke tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)), [integration tests](https://en.wikipedia.org/wiki/Integration_testing), [regression tests](https://en.wikipedia.org/wiki/Regression_testing), [continous delivery/deployment](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). We may cover these in this repo in the future, if there is some demand. ;)
 
 ## References
 
