@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.0]
+
+- First stable build
+
 ## [0.3.0]
 
 - Improved Travis CI checks (using tox, isolated Docker build)
