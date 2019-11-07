@@ -76,7 +76,7 @@ As a good practice, never do development on your `master` branch, unless you are
 
 If many people use your code, you should care for the stability. For this reason, you should properly version the code as you do further development. It is a good idea to follow the `MAJOR.MINOR.PATCH` pattern of [semantic versioning](https://semver.org/). Another complementary approach is to have a `development` branch, where your PRs are merged instead of `master`. Once the `dev` branch has a meaningful amount of changes and it tested thoroughly, you can increment the package version, and merge `dev` to `master` with another PR.
 
-While merging `dev` to `master`, it is typically useful to add a *git tag*. In addition, many `git` services such as *Github*, allow you to create a *release* with a tag. For instance, refer to the [v1.0.0 release](https://github.com/sertansenturk/tdd_demo/releases/tag/v1.0.0) for the first stable version of this repo.
+While merging `dev` to `master`, it is typically useful to add a *git tag*. Also, many `git` services such as *Github*, allow you to create a *release* with a *tag*. For instance, refer to the [v1.0.0 release](https://github.com/sertansenturk/tdd_demo/releases/tag/v1.0.0) for the first stable version of this repo.
 
 ## Unit tests
 
