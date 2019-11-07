@@ -4,9 +4,9 @@
 
 A simple demo for test-driven development, automated testing, code style checking, and continuous integration
 
-In this demo, we implement a simple function using test-driven development. Later, we show how to automate the tests, setup, and coding style in our local machine. Finally, we do the automation using continuous integration service.
+In this demo, we implement a simple function using test-driven development and *git* versioning. Later, we show how to automate the tests, setup, and coding style checks in our local machine. Finally, we move the automation to an online continuous integration service. For demonstration purposes, each step is divided into separate *git* branches, which are are kept to show the progress in development.
 
-Consider you are assigned the ticket below:
+**Task:** Consider you are assigned the ticket below:
 
 ----------
 
