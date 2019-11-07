@@ -6,11 +6,13 @@ A simple demo for test-driven development, automated testing, code style checkin
 
 In this demo, we implement a simple function using test-driven development and *git* versioning. Later, we show how to automate the tests, setup, and coding style checks in our local machine. Finally, we move the automation to an online continuous integration service. For demonstration purposes, each step is divided into separate *git* branches, which are are kept to show the progress in development.
 
-**Task:** Consider you are assigned the ticket below:
+## Task
+
+Consider you are assigned the ticket below:
 
 ----------
 
-## Convert Hz scale to cent scale
+### Convert Hz scale to cent scale
 
 **One-line summary (optional)**: Implement a method called `hz_to_cent` under the `demo` package in `converter.py`, which accepts an array of values in Hz and converts them to cents.
 
