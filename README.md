@@ -263,7 +263,7 @@ In Github, Travis CI (and *codecov*) reports are conveniently attached to the PR
 
 ## Next steps
 
-There is still a lot to cover, e.g. extending the style checks and linting (import order, docstring tests etc.), [mocking](https://stackoverflow.com/a/2666006), [smoke tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)), [integration tests](https://en.wikipedia.org/wiki/Integration_testing), [regression tests](https://en.wikipedia.org/wiki/Regression_testing), [continous delivery/deployment](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). We may cover these in this repo in the future, if there is some demand. ;)
+There is still a lot to cover, e.g. extending the style checks and linting (import order, docstring tests etc.), [mocking](https://stackoverflow.com/a/2666006), [smoke tests](https://en.wikipedia.org/wiki/Smoke_testing_(software)), [integration tests](https://en.wikipedia.org/wiki/Integration_testing), [regression tests](https://en.wikipedia.org/wiki/Regression_testing), and [continous delivery & deployment](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). We may cover these in this repo in the future, if there is some demand. ;)
 
 ## References
 
